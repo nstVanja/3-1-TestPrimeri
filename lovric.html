@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>California - Moja omiljena destinacija</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #050810;
+            color: white;
+        }
+
+
+        /* =========================
+   HEADER
+========================= */
+
+        header {
+            background-color: #080d18;
+            text-align: center;
+            padding: 35px 20px;
+            border-bottom: 2px solid #087cff;
+        }
+
+        header h1 {
+            color: #168cff;
+            font-size: 45px;
+            letter-spacing: 6px;
+        }
+
+        header p {
+            color: #aebed1;
+            margin-top: 8px;
+            font-size: 18px;
+        }
+
+
+        /* =========================
+   NAVIGACIJA
+========================= */
+
+        nav {
+            margin-top: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 18px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #168cff;
+        }
+
+
+        /* =========================
+   POČETNA
+========================= */
+
+        .pocetna {
+            max-width: 1150px;
+            min-height: 600px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 50px;
+            padding: 70px 25px;
+        }
+
+        .tekst-pocetna {
+            width: 50%;
+        }
+
+        .tekst-pocetna h2 {
+            color: #168cff;
+            font-size: 42px;
+            margin-bottom: 25px;
+        }
+
+        .tekst-pocetna p {
+            color: #c5d0df;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .slika-pocetna {
+            width: 50%;
+        }
+
+        .slika-pocetna img {
+            width: 100%;
+            border-radius: 15px;
+
+            box-shadow:
+                0 0 15px #006eff,
+                0 0 35px rgba(0, 110, 255, 0.4);
+        }
+
+
+        /* =========================
+   DUGME
+========================= */
+
+        .dugme {
+            display: inline-block;
+
+            margin-top: 20px;
+            padding: 14px 28px;
+
+            background-color: #087cff;
+            color: white;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            border-radius: 7px;
+
+            transition: 0.3s;
+        }
+
+        .dugme:hover {
+            background-color: #0054b8;
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+   SEKCIJE
+========================= */
+
+        .sekcija {
+            max-width: 1150px;
+            margin: auto;
+            padding: 80px 25px;
+            text-align: center;
+        }
+
+        .sekcija h2 {
+            color: #168cff;
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .uvod {
+            color: #aebed1;
+            font-size: 17px;
+            margin-bottom: 40px;
+        }
+
+
+        /* =========================
+   KARTICE
+========================= */
+
+        .kartice {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .kartica {
+            background-color: #0b1220;
+
+            border: 1px solid #153b65;
+
+            border-radius: 12px;
+
+            padding: 30px 20px;
+
+            transition: 0.3s;
+        }
+
+        .kartica:hover {
+            transform: translateY(-8px);
+
+            border-color: #168cff;
+
+            box-shadow:
+                0 0 15px rgba(0, 110, 255, 0.5);
+        }
+
+        .ikonica {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .kartica h3 {
+            color: #168cff;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .kartica p {
+            color: #b8c5d5;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+   GALERIJA
+========================= */
+
+        .galerija {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .slika {
+            background-color: #0b1220;
+
+            padding: 12px;
+
+            border-radius: 12px;
+
+            border: 1px solid #153b65;
+
+            transition: 0.3s;
+        }
+
+        .slika:hover {
+            transform: scale(1.03);
+
+            border-color: #168cff;
+
+            box-shadow:
+                0 0 20px rgba(0, 110, 255, 0.6);
+        }
+
+        .slika img {
+            width: 100%;
+            height: 250px;
+
+            object-fit: cover;
+
+            border-radius: 8px;
+        }
+
+        .slika h3 {
+            color: #168cff;
+            margin: 15px 5px 8px;
+        }
+
+
+        /* =========================
+   FOOTER
+========================= */
+
+        footer {
+            background-color: #080d18;
+
+            text-align: center;
+
+            padding: 40px 20px;
+
+            border-top: 2px solid #087cff;
+        }
+
+        footer h3 {
+            color: #168cff;
+            font-size: 25px;
+            letter-spacing: 3px;
+        }
+
+        footer p {
+            color: #aebed1;
+            margin-top: 10px;
+        }
+
+        footer .copyright {
+            margin-top: 25px;
+            font-size: 14px;
+            color: #68788d;
+        }
+
+
+        /* =========================
+   TELEFON / TABLET
+========================= */
+
+        @media (max-width: 800px) {
+
+            header h1 {
+                font-size: 35px;
+            }
+
+            nav a {
+                display: block;
+                margin: 12px;
+            }
+
+            .pocetna {
+                flex-direction: column;
+            }
+
+            .tekst-pocetna {
+                width: 100%;
+                text-align: center;
+            }
+
+            .tekst-pocetna h2 {
+                font-size: 35px;
+            }
+
+            .slika-pocetna {
+                width: 100%;
+            }
+
+            .kartice {
+                grid-template-columns: 1fr;
+            }
+
+            .galerija {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+        <h1>CALIFORNIA</h1>
+        <p>Moja omiljena destinacija</p>
+
+        <nav>
+            <a href="#pocetna">Početna</a>
+            <a href="#zanimljivosti">Zanimljivosti</a>
+            <a href="#galerija">Galerija</a>
+        </nav>
+    </header>
+
+
+    <!-- POČETNA -->
+
+    <section id="pocetna" class="pocetna">
+
+        <div class="tekst-pocetna">
+
+            <h2>Dobrodošli u Kaliforniju</h2>
+
+            <p>
+                Kalifornija je jedna od najpoznatijih saveznih država
+                Sjedinjenih Američkih Država. Poznata je po svojim
+                prelepim plažama, velikim gradovima, prirodi i
+                sunčanom vremenu.
+            </p>
+
+            <p>
+                Ovo je moja omiljena destinacija zato što spaja
+                more, prirodu, zabavu i neke od najpoznatijih gradova
+                na svetu.
+            </p>
+
+            <a href="#zanimljivosti" class="dugme">
+                Saznaj više
+            </a>
+
+        </div>
+
+        <div class="slika-pocetna">
+            <img src="slike/california.jpg" alt="Kalifornijska obala">
+        </div>
+
+    </section>
+
+
+    <!-- ZANIMLJIVOSTI -->
+
+    <section id="zanimljivosti" class="sekcija">
+
+        <h2>Zanimljivosti o Kaliforniji</h2>
+
+        <p class="uvod">
+            Kalifornija je puna zanimljivih mesta i atrakcija.
+            Evo nekoliko stvari koje je čine posebnom.
+        </p>
+
+        <div class="kartice">
+
+            <div class="kartica">
+                <div class="ikonica">🌉</div>
+
+                <h3>Golden Gate</h3>
+
+                <p>
+                    Golden Gate Bridge je jedan od najpoznatijih
+                    mostova na svetu i nalazi se u San Francisku.
+                </p>
+            </div>
+
+
+            <div class="kartica">
+                <div class="ikonica">🎬</div>
+
+                <h3>Hollywood</h3>
+
+                <p>
+                    Hollywood u Los Angelesu poznat je kao jedno
+                    od najvažnijih mesta filmske industrije.
+                </p>
+            </div>
+
+
+            <div class="kartica">
+                <div class="ikonica">🌲</div>
+
+                <h3>Yosemite</h3>
+
+                <p>
+                    Yosemite National Park poznat je po ogromnim
+                    stenama, vodopadima, šumama i prelepim pejzažima.
+                </p>
+            </div>
+
+
+            <div class="kartica">
+                <div class="ikonica">🏄</div>
+
+                <h3>Surfovanje</h3>
+
+                <p>
+                    Kalifornijska obala je veoma popularna za
+                    surfovanje i druge aktivnosti na vodi.
+                </p>
+            </div>
+
+
+            <div class="kartica">
+                <div class="ikonica">☀️</div>
+
+                <h3>Sunce i plaže</h3>
+
+                <p>
+                    Mnogi delovi Kalifornije poznati su po toploj
+                    klimi, plažama i velikom broju sunčanih dana.
+                </p>
+            </div>
+
+
+            <div class="kartica">
+                <div class="ikonica">🌴</div>
+
+                <h3>Los Angeles</h3>
+
+                <p>
+                    Los Angeles je jedan od najpoznatijih gradova
+                    Kalifornije i dom je mnogih poznatih atrakcija.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GALERIJA -->
+
+    <section id="galerija" class="sekcija">
+
+        <h2>Galerija</h2>
+
+        <p class="uvod">
+            Neka od najpoznatijih mesta koja bih voleo/la da posetim.
+        </p>
+
+        <div class="galerija">
+
+            <div class="slika">
+                <img src="slike/losangeles.jpg" alt="Los Angeles">
+
+                <h3>Los Angeles</h3>
+            </div>
+
+
+            <div class="slika">
+                <img src="slike/sanfrancisco.jpg" alt="San Francisco">
+
+                <h3>San Francisco</h3>
+            </div>
+
+
+            <div class="slika">
+                <img src="slike/yosemite.jpg" alt="Yosemite">
+
+                <h3>Yosemite National Park</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h3>CALIFORNIA</h3>
+
+        <p>
+            Moja omiljena destinacija 🌴
+        </p>
+
+        <p class="copyright">
+            © 2026 Moj California sajt
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moja destinacija - Madrid</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    background: #0f0d12;
+    color: #f5f2f7;
+    line-height: 1.7;
+}
+
+
+/* ---------- HEADER / HERO ---------- */
+
+header {
+    min-height: 650px;
+    padding: 70px 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(29, 15, 38, 0.88),
+            rgba(75, 35, 70, 0.55)
+        ),
+        url("madrid.webp") center center / cover no-repeat;
+}
+
+/* dekorativni sloj */
+
+header::before {
+    content: "";
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: rgba(222, 174, 61, 0.12);
+
+    top: -250px;
+    right: -180px;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    border-radius: 50%;
+
+    background: rgba(133, 76, 154, 0.18);
+
+    bottom: -220px;
+    left: -150px;
+}
+
+header h1,
+header p,
+header .slika {
+    position: relative;
+    z-index: 2;
+}
+
+header h1 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+
+    text-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+}
+
+header p {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+
+    color: #e5c76b;
+
+    margin-bottom: 35px;
+
+    letter-spacing: 1px;
+}
+
+.slika {
+    width: 300px;
+    height: 190px;
+
+    object-fit: cover;
+
+    border-radius: 25px;
+
+    border: 3px solid rgba(255, 255, 255, 0.75);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.45),
+        0 0 0 10px rgba(255, 255, 255, 0.05);
+
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.slika:hover {
+    transform: scale(1.04) rotate(-1deg);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.55),
+        0 0 35px rgba(225, 181, 66, 0.25);
+}
+
+
+/* ---------- NAVIGACIJA ---------- */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 14px 20px;
+
+    background: rgba(25, 18, 30, 0.88);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+nav a {
+    color: #f7f2f9;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    padding: 10px 20px;
+
+    border-radius: 30px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+nav a:hover {
+    background: #d9ad3d;
+
+    color: #24152b;
+
+    transform: translateY(-2px);
+}
+
+
+/* ---------- MAIN ---------- */
+
+main {
+    max-width: 1150px;
+
+    margin: 60px auto;
+
+    padding: 0 20px;
+}
+
+
+/* ---------- SEKCIJE ---------- */
+
+section {
+    margin-bottom: 45px;
+
+    padding: 45px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(45, 31, 50, 0.92),
+            rgba(27, 22, 31, 0.96)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.25);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    border-radius: 50%;
+
+    background: rgba(217, 173, 61, 0.04);
+
+    top: -130px;
+    right: -100px;
+
+    pointer-events: none;
+}
+
+section h2 {
+    position: relative;
+
+    color: #f1d477;
+
+    font-size: clamp(1.7rem, 4vw, 2.5rem);
+
+    margin-bottom: 22px;
+
+    line-height: 1.2;
+}
+
+section h2::after {
+    content: "";
+
+    display: block;
+
+    width: 70px;
+    height: 4px;
+
+    margin-top: 12px;
+
+    border-radius: 5px;
+
+    background: linear-gradient(
+        90deg,
+        #d9ad3d,
+        #8d579e
+    );
+}
+
+section p {
+    color: #d5cfd8;
+
+    margin-bottom: 20px;
+}
+
+
+/* ---------- GLAVNE SLIKE ---------- */
+
+.glavna-slika {
+    display: block;
+
+    width: 100%;
+    max-width: 850px;
+
+    height: 370px;
+
+    object-fit: cover;
+
+    margin: 30px auto 0;
+
+    border-radius: 22px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+.glavna-slika:hover {
+    transform: scale(1.015);
+
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.4),
+        0 0 25px rgba(217, 173, 61, 0.08);
+}
+
+
+/* ---------- KARTICE ZNAMENITOSTI ---------- */
+
+.kartice {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+    margin-top: 35px;
+}
+
+.kartica {
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(66, 46, 72, 0.8),
+            rgba(28, 23, 32, 0.95)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+}
+
+.kartica:hover {
+    transform: translateY(-10px);
+
+    border-color: rgba(217, 173, 61, 0.45);
+
+    box-shadow:
+        0 25px 45px rgba(0, 0, 0, 0.35),
+        0 0 25px rgba(217, 173, 61, 0.08);
+}
+
+.kartica h3 {
+    color: #f0d477;
+
+    font-size: 1.35rem;
+
+    padding: 22px 22px 5px;
+}
+
+.kartica p {
+    padding: 0 22px;
+
+    color: #c9c1cc;
+
+    font-size: 0.95rem;
+}
+
+.kartica .glavna-slika {
+    width: 100%;
+
+    height: 220px;
+
+    margin: 15px 0 0;
+
+    border: none;
+
+    border-radius: 0;
+
+    box-shadow: none;
+
+    transition: transform 0.5s ease;
+}
+
+.kartica:hover .glavna-slika {
+    transform: scale(1.06);
+}
+
+
+/* ---------- HRANA ---------- */
+
+#hrana ul {
+    list-style: none;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+    margin-top: 30px;
+}
+
+#hrana li {
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(66, 46, 72, 0.8),
+            rgba(28, 23, 32, 0.95)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+#hrana li:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 25px 45px rgba(0, 0, 0, 0.35),
+        0 0 25px rgba(217, 173, 61, 0.08);
+}
+
+#hrana .opis {
+    padding: 18px;
+
+    text-align: center;
+
+    color: #f0d477;
+
+    font-weight: 700;
+
+    font-size: 1.05rem;
+}
+
+#hrana li img {
+    display: block;
+
+    width: 100%;
+    height: 220px;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+#hrana li:hover img {
+    transform: scale(1.06);
+}
+
+
+/* ---------- ZANIMLJIVOSTI ---------- */
+
+#hrana h2:nth-of-type(2) {
+    margin-top: 50px;
+}
+
+#hrana p {
+    background: rgba(255, 255, 255, 0.035);
+
+    padding: 20px 22px;
+
+    border-left: 4px solid #d9ad3d;
+
+    border-radius: 0 12px 12px 0;
+}
+
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    margin-top: 70px;
+
+    padding: 35px 20px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1d1422,
+            #321b3f
+        );
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    color: #d8d0dc;
+}
+
+footer p {
+    margin: 0;
+
+    font-size: 1rem;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    header {
+        min-height: 570px;
+    }
+
+    .kartice {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #hrana ul {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    section {
+        padding: 35px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - TELEFON
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    header {
+        min-height: 500px;
+
+        padding: 50px 15px;
+    }
+
+    header h1 {
+        font-size: 2.4rem;
+
+        letter-spacing: 1px;
+    }
+
+    header p {
+        font-size: 1.05rem;
+    }
+
+    .slika {
+        width: 230px;
+        height: 150px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+
+        padding: 10px;
+
+        gap: 5px;
+    }
+
+    nav a {
+        padding: 8px 12px;
+
+        font-size: 0.9rem;
+    }
+
+    main {
+        margin: 30px auto;
+
+        padding: 0 12px;
+    }
+
+    section {
+        padding: 25px 20px;
+
+        border-radius: 20px;
+    }
+
+    section h2 {
+        font-size: 1.7rem;
+    }
+
+    .kartice {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    #hrana ul {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .glavna-slika {
+        height: 240px;
+
+        border-radius: 16px;
+    }
+
+    .kartica .glavna-slika {
+        height: 220px;
+    }
+
+    #hrana li img {
+        height: 220px;
+    }
+}
+
+
+/* =========================================================
+   VRLO MALI EKRANI
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .slika {
+        width: 200px;
+        height: 130px;
+    }
+
+    nav a {
+        font-size: 0.82rem;
+
+        padding: 7px 9px;
+    }
+
+    section {
+        padding: 20px 15px;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Moja destinacija - Madrid</h1>
+        <p>Glavni grad Španije</p>
+        <img class="slika" src="slike/madrid.webp" alt="Madrid">
+    </header>
+
+    <nav>
+        <a href="#o-madridu">O Madridu</a>
+        <a href="#znamenitosti">Znamenitosti</a>
+        <a href="#hrana">Hrana</a>
+    </nav>
+
+    <main>
+        <section id="o-madridu">
+            <h2>O Madridu</h2>
+            <p>
+                Madrid je glavni i najveći grad Španije. Poznat je po
+                prelepim trgovima, parkovima, muzejima i bogatoj istoriji.
+            </p>
+            <img src="slike/madrid2.jpg" alt="Madrid" class="glavna-slika">
+        </section>
+
+        <section id="znamenitosti">
+            <h2>Znamenitosti</h2>
+
+            <div class="kartice">
+                <div class="kartica">
+                    <h3>Kraljevska palata</h3>
+                    <p>Jedna od najpoznatijih građevina u Madridu.</p>
+                    <img src="slike/palata.jpg" alt="Kraljevska palata" class="glavna-slika">
+
+                </div>
+
+                <div class="kartica">
+                    <h3>Park Retiro</h3>
+                    <p>Veliki i poznati park idealan za šetnju i odmor.</p>
+                    <img src="slike/retiro.webp" alt="Park retiro" class="glavna-slika">
+
+                </div>
+
+                <div class="kartica">
+                    <h3>Muzej Prado</h3>
+                    <p>Jedan od najpoznatijih umetničkih muzeja u Španiji.</p>
+                    <img src="slike/prado.jpg" alt="Muzej Prado" class="glavna-slika">
+
+                </div>
+            </div>
+        </section>
+
+        <section id="hrana">
+            <h2>Šta bih probao u Madridu?</h2>
+            <ul>
+                <li>
+                    <div class="opis">Paella</div>
+                    <img src="slike/paella.jpg" alt="Paella">
+                </li>
+
+                <li>
+                    <div class="opis">Tapas</div>
+                    <img src="slike/tapas.jpg" alt="Tapas">
+                </li>
+
+                <li>
+                    <div class="opis">Churros sa čokoladom</div>
+                    <img src="slike/churos.webp" alt="Churros sa čokoladom">
+                </li>
+            </ul>
+            <h2>Zanimljivosti</h2>
+
+            <p>
+                Madrid je dom jednog od najpoznatijih fudbalskih klubova na svetu,
+                Real Madrida. Klub je osnovan 1902. godine i svoje utakmice igra
+                na stadionu Santiago Bernabéu.
+            </p>
+
+            <p>
+                Real Madrid je poznat po velikom broju osvojenih trofeja i bogatoj
+                fudbalskoj istoriji. Njegove boje su bela i ljubičasta.
+            </p>
+            <img src="slike/madrid3.jpg" alt="Real Madrid" class="glavna-slika">
+
+        </section>
+    </main>
+
+    <footer>
+        <p>Moja destinacija - Madrid 🇪🇸</p>
+    </footer>
+
+</body>
+
+</html>

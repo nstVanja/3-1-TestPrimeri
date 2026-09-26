@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyoto | Moja omiljena destinacija</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap');
+
+
+        /* =========================
+   OSNOVNA PODEŠAVANJA
+========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0b090a;
+            color: #f7a8c4;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+
+        /* =========================
+   HEADER
+========================= */
+
+        header {
+            width: 100%;
+            background: #0b090a;
+            border-bottom: 1px solid #292024;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1250px;
+            margin: auto;
+            padding: 22px 35px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 25px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            color: #ffffff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #eaa1bb;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+
+        /* =========================
+   HERO
+========================= */
+
+        .hero {
+            max-width: 1250px;
+            min-height: 720px;
+            margin: auto;
+
+            padding: 90px 35px;
+
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .hero-content {
+            max-width: 560px;
+        }
+
+        .subtitle {
+            color: #d85d88;
+            font-size: 12px;
+            letter-spacing: 4px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(55px, 7vw, 95px);
+            line-height: 0.98;
+            margin-bottom: 30px;
+        }
+
+        h1 span {
+            color: #f29dbb;
+            display: block;
+            font-style: italic;
+        }
+
+        .hero-description {
+            color: #e7a5bc;
+            font-size: 16px;
+            line-height: 1.9;
+            max-width: 500px;
+            margin-bottom: 35px;
+        }
+
+        .button {
+            display: inline-block;
+
+            padding: 15px 30px;
+
+            background: #f29dbb;
+            color: #0b090a;
+
+            border-radius: 30px;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #ffffff;
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+   HERO SLIKA
+========================= */
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            position: relative;
+            z-index: 2;
+
+            width: 100%;
+            height: 520px;
+
+            object-fit: cover;
+
+            border-radius: 3px;
+
+            filter: saturate(0.9);
+        }
+
+        .image-decoration {
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+
+            top: 25px;
+            left: 25px;
+
+            border: 1px solid #d85d88;
+
+            z-index: 1;
+        }
+
+        .image-label {
+            position: absolute;
+
+            z-index: 3;
+
+            left: -25px;
+            bottom: 30px;
+
+            background: #111;
+
+            border: 1px solid #3b252e;
+
+            padding: 18px 25px;
+
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .image-label span {
+            font-size: 27px;
+        }
+
+        .image-label strong {
+            display: block;
+            color: #ffffff;
+            letter-spacing: 3px;
+            font-size: 13px;
+        }
+
+        .image-label small {
+            color: #e78eae;
+        }
+
+
+        /* =========================
+   ABOUT
+========================= */
+
+        .about {
+            max-width: 1250px;
+            margin: auto;
+
+            padding: 110px 35px;
+
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 100px;
+
+            border-top: 1px solid #2a2024;
+        }
+
+        .section-title p,
+        .pink-title {
+            color: #d85d88;
+            font-size: 11px;
+            letter-spacing: 3px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .section-title h2 {
+            color: #ffffff;
+            font-family: 'Playfair Display', serif;
+            font-size: 55px;
+            line-height: 1.1;
+        }
+
+        .section-title h2 span {
+            color: #f29dbb;
+            font-style: italic;
+        }
+
+        .about-text {
+            padding-top: 10px;
+        }
+
+        .about-text p {
+            color: #e8a7bd;
+            font-size: 15px;
+            line-height: 2;
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+   STATISTIKA
+========================= */
+
+        .stats {
+            background: #f29dbb;
+
+            color: #0b090a;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            padding: 45px max(35px, calc((100% - 1180px) / 2));
+        }
+
+        .stat {
+            text-align: center;
+            border-right: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat span {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .stat p {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+
+        /* =========================
+   PLACES
+========================= */
+
+        .places {
+            max-width: 1250px;
+            margin: auto;
+
+            padding: 110px 35px;
+        }
+
+        .places-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+
+            margin-bottom: 55px;
+        }
+
+        .places-heading h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            line-height: 1.1;
+            color: #ffffff;
+            max-width: 600px;
+        }
+
+        .places-heading h2 span {
+            color: #f29dbb;
+            font-style: italic;
+        }
+
+        .heading-description {
+            color: #d98da8;
+            max-width: 300px;
+            line-height: 1.8;
+            font-size: 13px;
+        }
+
+
+        /* KARTICE */
+
+        .place-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .place-card {
+            min-height: 310px;
+
+            padding: 30px 25px;
+
+            background: #120f10;
+
+            border: 1px solid #302329;
+
+            position: relative;
+
+            transition: 0.3s;
+        }
+
+        .place-card:hover {
+            border-color: #f29dbb;
+            transform: translateY(-7px);
+        }
+
+        .number {
+            color: #68424f;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        .place-icon {
+            font-size: 35px;
+            margin-top: 35px;
+            margin-bottom: 25px;
+        }
+
+        .place-card h3 {
+            color: #ffffff;
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .place-card p {
+            color: #d98da8;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .card-line {
+            position: absolute;
+
+            bottom: 20px;
+            left: 25px;
+
+            width: 35px;
+            height: 2px;
+
+            background: #d85d88;
+        }
+
+
+        /* =========================
+   WHY SEKCIJA
+========================= */
+
+        .why {
+            background: #120f10;
+
+            padding: 110px max(35px, calc((100% - 1180px) / 2));
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+
+            align-items: center;
+        }
+
+        .why-image {
+            position: relative;
+        }
+
+        .why-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .circle-decoration {
+            width: 180px;
+            height: 180px;
+
+            border: 1px solid #d85d88;
+            border-radius: 50%;
+
+            position: absolute;
+
+            top: -50px;
+            left: -50px;
+
+            z-index: 1;
+        }
+
+        .why-content h2 {
+            color: #ffffff;
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            line-height: 1.1;
+
+            margin-bottom: 25px;
+        }
+
+        .why-content h2 span {
+            color: #f29dbb;
+            font-style: italic;
+        }
+
+        .why-content>p:not(.pink-title) {
+            color: #e2a1b8;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+
+        /* RAZLOZI */
+
+        .reasons {
+            margin-top: 35px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+        .reasons div {
+            border-top: 1px solid #3b2930;
+            padding-top: 15px;
+        }
+
+        .reasons strong {
+            color: #d85d88;
+            font-size: 12px;
+        }
+
+        .reasons p {
+            color: #ffffff;
+            font-size: 13px;
+            margin-top: 7px;
+        }
+
+
+        /* =========================
+   QUOTE
+========================= */
+
+        .quote {
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 120px 35px;
+
+            text-align: center;
+        }
+
+        .quote-symbol {
+            font-family: 'Playfair Display', serif;
+            font-size: 90px;
+            color: #d85d88;
+            height: 65px;
+        }
+
+        .quote p {
+            color: #f29dbb;
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 30px;
+            line-height: 1.5;
+
+            font-style: italic;
+        }
+
+        .quote span {
+            display: block;
+
+            margin-top: 25px;
+
+            color: #8c5366;
+
+            font-size: 10px;
+            letter-spacing: 3px;
+        }
+
+
+        /* =========================
+   FOOTER
+========================= */
+
+        footer {
+            background: #050405;
+
+            text-align: center;
+
+            padding: 60px 20px;
+
+            border-top: 1px solid #2d2227;
+        }
+
+        .footer-logo {
+            color: #ffffff;
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 30px;
+
+            letter-spacing: 6px;
+        }
+
+        footer p {
+            color: #d85d88;
+
+            font-size: 12px;
+
+            margin-top: 10px;
+        }
+
+        .footer-line {
+            width: 50px;
+            height: 1px;
+
+            background: #d85d88;
+
+            margin: 25px auto;
+        }
+
+        footer small {
+            color: #704554;
+        }
+
+
+        /* =========================
+   RESPONSIVE
+========================= */
+
+        @media (max-width: 950px) {
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .hero-content {
+                max-width: 700px;
+            }
+
+            .place-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .why {
+                grid-template-columns: 1fr;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+
+            .stat:nth-child(2) {
+                border-right: none;
+            }
+
+            .stat {
+                border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                padding-bottom: 20px;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            nav {
+                padding: 18px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 70px 20px;
+            }
+
+            h1 {
+                font-size: 60px;
+            }
+
+            .hero-image img {
+                height: 400px;
+            }
+
+            .image-decoration {
+                top: 12px;
+                left: 12px;
+            }
+
+            .image-label {
+                left: 10px;
+            }
+
+            .places {
+                padding: 80px 20px;
+            }
+
+            .places-heading {
+                display: block;
+            }
+
+            .places-heading h2 {
+                font-size: 40px;
+            }
+
+            .heading-description {
+                margin-top: 25px;
+            }
+
+            .place-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why {
+                padding: 80px 20px;
+            }
+
+            .why-image img {
+                height: 350px;
+            }
+
+            .why-content h2 {
+                font-size: 42px;
+            }
+
+            .reasons {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                padding: 40px 20px;
+            }
+
+            .stat span {
+                font-size: 25px;
+            }
+
+            .stat p {
+                font-size: 10px;
+            }
+
+            .quote {
+                padding: 90px 25px;
+            }
+
+            .quote p {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+        <nav>
+            <div class="logo">KYOTO</div>
+
+            <div class="nav-links">
+                <a href="#pocetna">Početna</a>
+                <a href="#kyoto">O Kyotu</a>
+                <a href="#mesta">Mesta</a>
+                <a href="#zasto">Zašto Kyoto?</a>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- HERO SEKCIJA -->
+
+    <section class="hero" id="pocetna">
+
+        <div class="hero-content">
+
+            <p class="subtitle">JAPAN • SAKURA • TRADICIJA</p>
+
+            <h1>
+                Moja omiljena
+                <span>destinacija.</span>
+            </h1>
+
+            <p class="hero-description">
+                Kyoto je grad koji savršeno spaja tradicionalni Japan,
+                prelepe hramove, mirne vrtove i čarobnu atmosferu
+                cvetanja sakure.
+            </p>
+
+            <a href="#kyoto" class="button">
+                Otkrij Kyoto →
+            </a>
+
+        </div>
+
+
+        <div class="hero-image">
+
+            <div class="image-decoration"></div>
+
+            <img src="slike/kyoto.jpg" alt="Kyoto u Japanu tokom cvetanja sakure">
+
+            <div class="image-label">
+                <span>🌸</span>
+                <div>
+                    <strong>KYOTO</strong>
+                    <small>Japan</small>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- UVOD -->
+
+    <section class="about" id="kyoto">
+
+        <div class="section-title">
+            <p>01 — O GRADU</p>
+            <h2>Grad tradicije<br><span>i lepote.</span></h2>
+        </div>
+
+        <div class="about-text">
+
+            <p>
+                Kyoto je jedan od najpoznatijih gradova Japana i
+                predstavlja pravo mesto za upoznavanje sa japanskom
+                kulturom i tradicijom.
+            </p>
+
+            <p>
+                Grad je bio carska prestonica Japana više od hiljadu
+                godina. Danas je poznat po istorijskim hramovima,
+                tradicionalnim kućama, vrtovima i ulicama koje
+                podsećaju na stari Japan.
+            </p>
+
+            <p>
+                Posebnu atmosferu Kyoto dobija tokom proleća, kada
+                cvetaju sakure i čitav grad dobija prepoznatljivu
+                roze boju.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATISTIKA -->
+
+    <section class="stats">
+
+        <div class="stat">
+            <span>1000+</span>
+            <p>godina istorije</p>
+        </div>
+
+        <div class="stat">
+            <span>2000+</span>
+            <p>hramova i svetilišta</p>
+        </div>
+
+        <div class="stat">
+            <span>🌸</span>
+            <p>poznat po sakurama</p>
+        </div>
+
+        <div class="stat">
+            <span>JPN</span>
+            <p>zemlja izlazećeg sunca</p>
+        </div>
+
+    </section>
+
+
+    <!-- MESTA -->
+
+    <section class="places" id="mesta">
+
+        <div class="places-heading">
+
+            <div>
+                <p class="pink-title">02 — ŠTA POSETITI</p>
+
+                <h2>
+                    Mesta koja bih <span>voleo da vidim.</span>
+                </h2>
+            </div>
+
+            <p class="heading-description">
+                Kyoto je pun zanimljivih mesta koja pokazuju
+                različite strane japanske kulture.
+            </p>
+
+        </div>
+
+
+        <div class="place-grid">
+
+            <div class="place-card">
+
+                <div class="number">01</div>
+
+                <div class="place-icon">⛩️</div>
+
+                <h3>Fushimi Inari</h3>
+
+                <p>
+                    Poznato svetilište sa hiljadama crvenih torii
+                    kapija koje vode kroz šumu.
+                </p>
+
+                <span class="card-line"></span>
+
+            </div>
+
+
+            <div class="place-card">
+
+                <div class="number">02</div>
+
+                <div class="place-icon">🏯</div>
+
+                <h3>Kinkaku-ji</h3>
+
+                <p>
+                    Zlatni paviljon okružen predivnim vrtovima
+                    i mirnim jezerom.
+                </p>
+
+                <span class="card-line"></span>
+
+            </div>
+
+
+            <div class="place-card">
+
+                <div class="number">03</div>
+
+                <div class="place-icon">🌿</div>
+
+                <h3>Bambusova šuma</h3>
+
+                <p>
+                    Arashiyama je poznata po visokoj bambusovoj šumi
+                    i neverovatnoj prirodi.
+                </p>
+
+                <span class="card-line"></span>
+
+            </div>
+
+
+            <div class="place-card">
+
+                <div class="number">04</div>
+
+                <div class="place-icon">🌸</div>
+
+                <h3>Maruyama Park</h3>
+
+                <p>
+                    Jedno od poznatih mesta za uživanje u pogledu
+                    na cvetanje japanskih trešanja.
+                </p>
+
+                <span class="card-line"></span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ZAŠTO KYOTO -->
+
+    <section class="why" id="zasto">
+
+        <div class="why-image">
+            <div class="circle-decoration"></div>
+            <img src="slike/2.webp" alt="Fushimi Inari svetilište u Kyotu, Japan">
+        </div>
+
+
+        <div class="why-content">
+
+            <p class="pink-title">03 — MOJ IZBOR</p>
+
+            <h2>
+                Zašto bih izabrao
+                <span>Kyoto?</span>
+            </h2>
+
+            <p>
+                Kyoto mi je zanimljiv zato što nije samo turistička
+                destinacija. To je grad u kojem se može osetiti
+                istorija Japana i upoznati način života koji se
+                razlikuje od našeg.
+            </p>
+
+            <div class="reasons">
+
+                <div>
+                    <strong>01</strong>
+                    <p>Prelepa japanska arhitektura</p>
+                </div>
+
+                <div>
+                    <strong>02</strong>
+                    <p>Mirni vrtovi i priroda</p>
+                </div>
+
+                <div>
+                    <strong>03</strong>
+                    <p>Čarobna atmosfera sakure</p>
+                </div>
+
+                <div>
+                    <strong>04</strong>
+                    <p>Tradicionalna japanska kultura</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CITAT -->
+
+    <section class="quote">
+
+        <div class="quote-symbol">“</div>
+
+        <p>
+            Kyoto je mesto gde bih voleo da zastanem,
+            uživam u trenutku i upoznam Japan na drugačiji način.
+        </p>
+
+        <span>— MOJA OMILJENA DESTINACIJA</span>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-logo">KYOTO</div>
+
+        <p>
+            Sakura • Tradicija • Japan
+        </p>
+
+        <div class="footer-line"></div>
+
+        <small>
+            Moja omiljena destinacija 🌸
+        </small>
+
+    </footer>
+
+</body>
+
+</html>

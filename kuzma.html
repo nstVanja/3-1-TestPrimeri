@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edinburg | Moja Omiljena Destinacija</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #1a252f;
+      background-color: #f8f9fa;
+      scroll-behavior: smooth;
+      font-weight: 600;
+    }
+
+    header {
+      background-color: #1a252f;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      color: #f32c12;
+      font-size: 1.6rem;
+      font-weight: 800;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      width: 32px;
+      height: 32px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: #ecf0f1;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #f32c12;
+    }
+
+    .hero {
+
+      background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+        url('slike/edinburg.jpg') center/cover no-repeat;
+      height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #ffffff;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      font-weight: 700;
+      max-width: 650px;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 30px;
+      color: #1a252f;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 5px;
+      background-color: #f32c12;
+      margin: 10px auto 0;
+      border-radius: 3px;
+    }
+
+    .history-section {
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      margin-bottom: 60px;
+    }
+
+    .history-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .history-text p {
+      margin-bottom: 15px;
+      text-align: justify;
+      font-weight: 600;
+    }
+
+    .history-img img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .facts-section {
+      margin-bottom: 60px;
+    }
+
+    .card-container {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card {
+      position: relative;
+      width: 350px;
+      height: 420px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .card-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.95));
+      color: #ffffff;
+    }
+
+    .card-content h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .card-content .subtitle {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #f32c12;
+      margin-bottom: 10px;
+    }
+
+    .hover-fact {
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.4;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.08);
+    }
+
+    .card:hover .hover-fact {
+      opacity: 1;
+      max-height: 130px;
+      margin-top: 10px;
+    }
+
+    .tips-section {
+      background-color: #eef2f5;
+      padding: 40px;
+      border-radius: 12px;
+      margin-bottom: 60px;
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .tip-box {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 6px solid #f32c12;
+      font-weight: 600;
+    }
+
+    .tip-box h4 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: #1a252f;
+    }
+
+    footer {
+      background-color: #1a252f;
+      color: #ecf0f1;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+      .history-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <a href="#" class="logo">
+        <img src="slike/zamak.jpg" alt="Zamak">
+        <span>Edinburg</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#o-gradu">O Gradu</a></li>
+        <li><a href="#istorija">Istorija</a></li>
+        <li><a href="#zanimljivosti">Zanimljivosti</a></li>
+        <li><a href="#saveti">Saveti za Posetu</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="o-gradu">
+    <h1>Edinburg</h1>
+    <p>Spoj mračne istorije, magične arhitekture i neukrotive škotske prirode.</p>
+  </section>
+
+  <div class="container">
+
+    <section class="history-section" id="istorija">
+      <h2 class="section-title">Bogata Istorija Grada</h2>
+      <div class="history-grid">
+        <div class="history-text">
+          <p>Edinburg je prestonica Škotske još od 15. veka i predstavlja jedan od najvažnijih istorijskih centara
+            Evrope. Grad je podeljen na dve karakteristične celine: <strong>Stari grad (Old Town)</strong> sa
+            srednjovekovnom mrežom ulica i <strong>Novi grad (New Town)</strong> sagrađen u stilu neoklasicizma u 18.
+            veku.</p>
+          <p>Kroz vekove, Edinburg je bio poprište burnih kraljevskih sukoba, naučnih otkrića tokom škotskog
+            prosvetiteljstva, ali i mračnih priča o duhovima, kugi i tajnim podzemnim tunelima.</p>
+          <p>Zbog svoje izuzetne arhitektonske i istorijske vrednosti, ceo centar Edinburga se nalazi pod zaštitom
+            UNESCO-a.</p>
+        </div>
+        <div class="history-img">
+          <img src="slike/edinburgh-bg.jpg" alt="Edinburg Zamak">
+        </div>
+      </div>
+    </section>
+
+    <section class="facts-section" id="zanimljivosti">
+      <h2 class="section-title">Zanimljivosti & Znamenitosti</h2>
+      <p style="text-align: center; margin-bottom: 30px; color: #555; font-weight: 700;">Pređi mišem preko kartice da
+        otkriješ tajnu lokacije! 💡</p>
+
+      <div class="card-container">
+
+        <div class="card">
+          <img src="slike/zamak.jpg" alt="Edinburški Zamak">
+          <div class="card-content">
+            <h3>Edinburški Zamak</h3>
+            <div class="subtitle">Kraljevska tvrđava</div>
+            <p class="hover-fact">💡 <strong>Zanimljivost:</strong> Zamak leži na steni <em>Castle Rock</em>, koja je
+              zapravo ugašeni vulkan star preko 350 miliona godina!</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="slike/victoriastreet.jpg" alt="Victoria Street">
+          <div class="card-content">
+            <h3>Victoria Street</h3>
+            <p class="subtitle">Magična šarena ulica</p>
+            <p class="hover-fact">💡 <strong>Zanimljivost:</strong> Ova zakrivljena ulica sa šarenim fasadama bila je
+              direktna inspiracija Dž. K. Rouling za stvaranje čuvene <em>Dijagon-aleje</em> u knjigama o Hariju Poteru.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="slike/caltonhill.jpg" alt="Calton Hill">
+          <div class="card-content">
+            <h3>Calton Hill</h3>
+            <p class="subtitle">Atena Severa</p>
+            <p class="hover-fact">💡 <strong>Zanimljivost:</strong> Poznat po spomeniku koji podseća na Partenon. Zbog
+              ove arhitekture Edinburg je dobio nadimak "Atena Severa".</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="tips-section" id="saveti">
+      <h2 class="section-title">Korisni Saveti za Putovanje</h2>
+      <div class="tips-grid">
+        <div class="tip-box">
+          <h4>Vreme</h4>
+          <p>Spremite se za sve četiri sezone u jednom danu! Kišobran i udobne patike za hodanje po kaldrmi su obavezni.
+          </p>
+        </div>
+        <div class="tip-box">
+          <h4>Avgustovski Festival</h4>
+          <p>U avgustu se održava <em>Edinburgh Fringe</em>, najveći festival umetnosti na svetu, kada ulice ožive
+            hiljadama izvođača.</p>
+        </div>
+        <div class="tip-box">
+          <h4>🚶Najbolji pogled</h4>
+          <p>Popnite se na brdo <strong>Arthur's Seat</strong> ili <strong>Calton Hill</strong> za neverovatan
+            panoramski pogled na ceo grad i more.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Moja Omiljena Destinacija | Napravljeno za HTML/CSS projekat</p>
+  </footer>
+
+</body>
+
+</html>

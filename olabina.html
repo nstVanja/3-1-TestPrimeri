@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pariz - Grad Svetlosti</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #FAF9F6;
+            color: #1A2B4C;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+
+        .zaglavlje {
+            display: flex;
+            justify-content: space-between;
+            /* Logo skroz levo, meni skroz desno */
+            align-items: center;
+            padding: 15px 5%;
+            background-color: #FAF9F6;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1A2B4C;
+        }
+
+        .meni {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .meni a {
+            text-decoration: none;
+            color: #1A2B4C;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .meni a:hover {
+            color: #D4AF37;
+        }
+
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(26, 43, 76, 0.4), rgba(26, 43, 76, 0.6)),
+                url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #D4AF37;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #b8952b;
+            transform: translateY(-3px);
+        }
+
+
+        .attractions {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .attractions h2 {
+            font-size: 2.8rem;
+            margin-bottom: 40px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #1A2B4C;
+            color: #FAF9F6;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <header class="zaglavlje">
+        <div class="logo">Pariz. | Pariz u srcu</div>
+        <nav>
+            <ul class="meni">
+                <li><a href="#hero">Početna</a></li>
+                <li><a href="#atrakcije">Atrakcije</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section class="hero" id="hero">
+        <h1>PARIZ</h1>
+        <p>Grad svetlosti, umetnosti i nezaboravnih trenutaka.</p>
+        <a href="#atrakcije" class="btn">Istraži Grad</a>
+    </section>
+
+
+    <section class="attractions" id="atrakcije">
+        <h2>Najpoznatije Lokacije</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=600&q=80"
+                    alt="Ajfelova kula">
+                <div class="card-content">
+                    <h3>Ajfelova Kula</h3>
+                    <p>Uživajte u pogledu na ceo grad sa vrhunca ovog svetski poznatog simbola Pariza.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=600&q=80"
+                    alt="Luvr">
+                <div class="card-content">
+                    <h3>Muzej Luvr</h3>
+                    <p>Mesto gde se susreću vekovi umetnosti, istorije i čuveni osmeh Mona Lize.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1509299349698-dd22323b5963?auto=format&fit=crop&w=600&q=80"
+                    alt="Monmartr">
+                <div class="card-content">
+                    <h3>Monmartr</h3>
+                    <p>Prošetajte boemskim ulicama koje su inspirisale najveće slikare sveta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <p>"Pariz je uvek dobra ideja." – Audrey Hepburn</p>
+    </footer>
+
+</body>
+
+</html>

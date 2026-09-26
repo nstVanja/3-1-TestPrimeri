@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Budva – jedno od najpoznatijih mesta crnogorskog primorja. Saznajte više o njenim plažama, Starom gradu i znamenitostima.">
+
+    <title>Budva | Biser Crnogorskog primorja</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #24343b;
+            background-color: #f7fbfa;
+            line-height: 1.7;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =========================
+   HERO
+========================= */
+
+        .hero {
+            min-height: 85vh;
+            background-image:
+                linear-gradient(rgba(0, 50, 70, 0.45),
+                    rgba(0, 30, 45, 0.65)),
+                url("slike/budva.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            color: white;
+        }
+
+        .hero-overlay {
+            padding: 40px 20px;
+            max-width: 900px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            color: #bce9e8;
+        }
+
+        .hero h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(70px, 12vw, 150px);
+            line-height: 1;
+            margin-bottom: 20px;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-text {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(22px, 4vw, 34px);
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+
+        .dugme {
+            display: inline-block;
+            padding: 14px 32px;
+
+            background-color: #ffffff;
+            color: #176b72;
+
+            border-radius: 30px;
+            font-weight: bold;
+
+            transition: 0.3s ease;
+        }
+
+        .dugme:hover {
+            background-color: #176b72;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+
+        /* =========================
+   NAVIGACIJA
+========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background-color: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid #dcebea;
+
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            gap: 35px;
+            padding: 18px 20px;
+        }
+
+        .nav-container a {
+            position: relative;
+
+            font-size: 15px;
+            font-weight: bold;
+            color: #31545a;
+
+            transition: 0.3s ease;
+        }
+
+        .nav-container a::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+
+            width: 0;
+            height: 2px;
+
+            background-color: #1c8b91;
+
+            transition: 0.3s ease;
+        }
+
+        .nav-container a:hover {
+            color: #1c8b91;
+        }
+
+        .nav-container a:hover::after {
+            width: 100%;
+        }
+
+
+        /* =========================
+   OPŠTE SEKCIJE
+========================= */
+
+        section {
+            padding: 100px 8%;
+        }
+
+        section h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(35px, 5vw, 55px);
+            line-height: 1.15;
+            color: #183f47;
+            margin-bottom: 25px;
+        }
+
+        .section-label {
+            color: #198b91;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .centrirano {
+            text-align: center;
+        }
+
+
+        /* =========================
+   UVOD
+========================= */
+
+        .uvod {
+            max-width: 1300px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .uvod-tekst {
+            max-width: 600px;
+        }
+
+        .uvod-tekst p:not(.section-label) {
+            color: #5d6f73;
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+
+        .uvod-slika {
+            position: relative;
+        }
+
+        .uvod-slika::before {
+            content: "";
+
+            position: absolute;
+            width: 100%;
+            height: 100%;
+
+            border: 2px solid #7fc9c6;
+
+            top: 18px;
+            left: 18px;
+
+            border-radius: 10px;
+
+            z-index: -1;
+        }
+
+        .uvod-slika img {
+            width: 100%;
+            height: 430px;
+
+            object-fit: cover;
+            border-radius: 10px;
+
+            box-shadow: 0 20px 50px rgba(19, 73, 80, 0.18);
+        }
+
+
+        /* =========================
+   ZAŠTO BUDVA
+========================= */
+
+        #zasto {
+            background-color: #eaf5f4;
+            text-align: center;
+        }
+
+        .kartice {
+            max-width: 1200px;
+            margin: 50px auto 0;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .kartica {
+            background-color: white;
+
+            padding: 40px 30px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 10px 30px rgba(26, 85, 91, 0.08);
+
+            transition: 0.3s ease;
+        }
+
+        .kartica:hover {
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 20px 40px rgba(26, 85, 91, 0.15);
+        }
+
+        .ikona {
+            width: 70px;
+            height: 70px;
+
+            margin: 0 auto 25px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: #d8efed;
+
+            border-radius: 50%;
+
+            font-size: 32px;
+        }
+
+        .kartica h3 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 25px;
+            color: #1b5058;
+
+            margin-bottom: 15px;
+        }
+
+        .kartica p {
+            color: #687b7e;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="hero">
+        <div class="hero-overlay">
+            <p class="subtitle">CRNA GORA • JADRANSKO MORE</p>
+
+            <h1>Budva</h1>
+
+            <p class="hero-text">
+                Biser crnogorskog primorja
+            </p>
+
+            <a href="#o-budvi" class="dugme">Istraži Budvu</a>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#o-budvi">O Budvi</a>
+            <a href="#zasto">Zašto Budva?</a>
+            <a href="#mesta">Mesta</a>
+            <a href="#zanimljivosti">Zanimljivosti</a>
+            <a href="#utisak">Moj utisak</a>
+        </div>
+    </nav>
+
+    <main>
+
+        <section id="o-budvi" class="uvod">
+            <div class="uvod-tekst">
+                <p class="section-label">DOBRODOŠLI</p>
+
+                <h2>Grad mora, sunca i istorije</h2>
+
+                <p>
+                    Budva je jedan od najpoznatijih gradova na crnogorskom
+                    primorju i mesto koje spaja prirodne lepote, bogatu
+                    istoriju i savremeni turistički život.
+                </p>
+
+                <p>
+                    Posebnu atmosferu daju joj Jadransko more, brojne plaže,
+                    kamene ulice Starog grada i pogled na obalu koji je
+                    karakterističan za ovaj deo Crne Gore.
+                </p>
+            </div>
+
+            <div class="uvod-slika">
+                <img src="slike/budva.jpg" alt="Panoramski pogled na Budvu i Jadransko more">
+            </div>
+        </section>
+
+
+        <section id="zasto">
+            <p class="section-label centrirano">DOŽIVLJAJ</p>
+
+            <h2>Zašto volim Budvu?</h2>
+
+            <div class="kartice">
+
+                <article class="kartica">
+                    <div class="ikona">🌊</div>
+
+                    <h3>Jadransko more</h3>
+
+                    <p>
+                        Čisto more i prijatna mediteranska klima čine Budvu
+                        privlačnim mestom za letnji odmor i opuštanje.
+                    </p>
+                </article>
+
+                <article class="kartica">
+                    <div class="ikona">🏖️</div>
+
+                    <h3>Prelepe plaže</h3>
+
+                    <p>
+                        U okolini Budve nalazi se veliki broj plaža,
+                        od gradskih do skrivenijih uvala sa pogledom na more.
+                    </p>
+                </article>
+
+                <article class="kartica">
+                    <div class="ikona">🏛️</div>
+
+                    <h3>Stari grad</h3>
+
+                    <p>
+                        Kamene ulice, trgovi i istorijske građevine daju
+                        Starom gradu poseban karakter i atmosferu.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+
+        <section id="mesta" class="mesta">
+            <p class="section-label">PREPORUČENA MESTA</p>
+
+            <h2>Mesta koja vredi posetiti</h2>
+
+            <div class="mesta-grid">
+
+                <div class="mesto">
+                    <span>01</span>
+                    <div>
+                        <h3>Stari grad Budva</h3>
+                        <p>
+                            Istorijsko jezgro grada, poznato po kamenim
+                            ulicama i zidinama.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mesto">
+                    <span>02</span>
+                    <div>
+                        <h3>Mogren plaža</h3>
+                        <p>
+                            Jedna od poznatijih plaža u blizini Starog grada.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mesto">
+                    <span>03</span>
+                    <div>
+                        <h3>Slovenska plaža</h3>
+                        <p>
+                            Duga gradska plaža uz koju se pruža šetalište.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mesto">
+                    <span>04</span>
+                    <div>
+                        <h3>Citadela</h3>
+                        <p>
+                            Istorijska tvrđava u Starom gradu sa pogledom
+                            prema moru.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mesto">
+                    <span>05</span>
+                    <div>
+                        <h3>Šetalište uz more</h3>
+                        <p>
+                            Prijatno mesto za večernju šetnju i uživanje
+                            u pogledu na obalu.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mesto">
+                    <span>06</span>
+                    <div>
+                        <h3>Sveti Nikola</h3>
+                        <p>
+                            Ostrvo u neposrednoj blizini Budve koje
+                            upotpunjuje panoramu zaliva.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section id="zanimljivosti" class="zanimljivosti">
+            <div>
+                <p class="section-label">DA LI STE ZNALI?</p>
+
+                <h2>Zanimljivosti o Budvi</h2>
+
+                <p>
+                    Budva ima dugu istoriju i jedno je od najpoznatijih
+                    turističkih mesta na crnogorskoj obali. Njeno staro
+                    gradsko jezgro okruženo je kamenim zidinama i predstavlja
+                    jedan od prepoznatljivih simbola grada.
+                </p>
+
+                <p>
+                    U neposrednoj blizini nalazi se ostrvo Sveti Nikola,
+                    dok su među poznatim plažama u okolini Mogren, Jaz
+                    i Slovenska plaža.
+                </p>
+            </div>
+
+            <div class="zanimljivost-broj">
+                <span>☀</span>
+                <p>More<br>sunce<br>i odmor</p>
+            </div>
+        </section>
+
+
+        <section id="utisak" class="utisak">
+            <p class="section-label centrirano">LIČNI UTISAK</p>
+
+            <h2>Moje mišljenje</h2>
+
+            <blockquote>
+                „Budva je za mene posebno mesto jer na jednom mestu pruža
+                mogućnost za odmor, uživanje u prirodi i kvalitetno vreme
+                provedeno sa porodicom i prijateljima.“
+            </blockquote>
+
+            <p class="potpis">
+                — Moja omiljena lokacija
+            </p>
+        </section>
+
+    </main>
+
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Budva</h3>
+                <p>Biser crnogorskog primorja</p>
+            </div>
+
+            <div class="footer-info">
+                <p>Moja omiljena lokacija</p>
+                <p>© 2026</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
