@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moja omiljena destinacija - Santorini</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8fbff;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #075985;
+            color: white;
+            padding: 18px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav h1 {
+            font-size: 28px;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #bae6fd;
+        }
+
+        header {
+            height: 650px;
+            background-image: url("slike/santorini.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 40, 70, 0.45);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .overlay h2 {
+            font-size: 52px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .overlay p {
+            font-size: 20px;
+            max-width: 700px;
+            line-height: 1.6;
+        }
+
+        .hero-button {
+            padding: 13px 28px;
+            background: #0284c7;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            background: #0369a1;
+            transform: scale(1.05);
+        }
+
+        section {
+            padding: 70px 30px;
+            text-align: center;
+        }
+
+        section h2 {
+            color: #075985;
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+
+        .intro {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 35px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            width: 280px;
+            border-radius: 14px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+        }
+
+        .card h3 {
+            color: #0369a1;
+            margin-bottom: 15px;
+            font-size: 21px;
+        }
+
+        .card p {
+            line-height: 1.6;
+        }
+
+        .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .blue-section {
+            background: #e0f2fe;
+        }
+
+        .place-card {
+            background: white;
+            width: 300px;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .place-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+        }
+
+        .place-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .place-content {
+            padding: 25px;
+        }
+
+        .place-content h3 {
+            color: #0369a1;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .place-content p {
+            line-height: 1.6;
+        }
+
+        .gallery {
+            max-width: 1100px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+            transition: 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-text {
+            padding: 20px;
+        }
+
+        .gallery-text h3 {
+            color: #075985;
+            margin-bottom: 8px;
+        }
+
+        .gallery-text p {
+            line-height: 1.5;
+        }
+
+        .why-section {
+            background: #bae6fd;
+        }
+
+        .why-section h2 {
+            color: #075985;
+        }
+
+        .why-text {
+            max-width: 800px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .contact-section {
+            background: #f0f9ff;
+        }
+
+        .contact-section p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 450px;
+            margin: 30px auto;
+        }
+
+        input,
+        textarea {
+            margin: 8px 0;
+            padding: 13px;
+            border: 1px solid #bae6fd;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 15px;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #0284c7;
+            box-shadow: 0 0 5px rgba(2, 132, 199, 0.3);
+        }
+
+        form button {
+            margin-top: 10px;
+            padding: 13px;
+            background: #0284c7;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        form button:hover {
+            background: #0369a1;
+        }
+
+        footer {
+            background: #082f49;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+                padding: 18px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            header {
+                height: 550px;
+            }
+
+            .overlay h2 {
+                font-size: 36px;
+            }
+
+            .overlay p {
+                font-size: 17px;
+            }
+
+            .cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card,
+            .place-card {
+                width: 90%;
+                max-width: 350px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item img {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+
+        <h1>Santorini</h1>
+
+        <ul>
+            <li><a href="#pocetna">Početna</a></li>
+            <li><a href="#o-santoriniju">O Santoriniju</a></li>
+            <li><a href="#znamenitosti">Znamenitosti</a></li>
+            <li><a href="#galerija">Galerija</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+
+    </nav>
+
+
+    <main>
+
+        <header id="pocetna">
+
+            <div class="overlay">
+
+                <h2>Moja omiljena destinacija</h2>
+
+                <p>
+                    Santorini - ostrvo belih kuća, plavih kupola i nezaboravnih zalazaka sunca.
+                </p>
+
+                <a href="#o-santoriniju" class="hero-button">
+                    Istraži Santorini
+                </a>
+
+            </div>
+
+        </header>
+
+        <section id="o-santoriniju">
+
+            <h2>O Santoriniju</h2>
+
+            <p class="intro">
+                Santorini je jedno od najpoznatijih i najlepših grčkih ostrva.
+                Nalazi se u Egejskom moru i poznat je po svojim belim kućama,
+                plavim kupolama, vulkanskim pejzažima i prelepim pogledima.
+                Ovo je destinacija koju bih voleo/la da posetim zbog
+                jedinstvene atmosfere i prirodnih lepota.
+            </p>
+
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <div class="icon">🌊</div>
+
+                    <h3>Prelepo more</h3>
+
+                    <p>
+                        Kristalno čisto Egejsko more pruža savršene
+                        uslove za odmor i uživanje u prirodi.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icon">🏠</div>
+
+                    <h3>Jedinstvena arhitektura</h3>
+
+                    <p>
+                        Bele kuće i karakteristične plave kupole
+                        predstavljaju jedan od simbola Santorinija.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icon">🌅</div>
+
+                    <h3>Prelepi zalasci</h3>
+
+                    <p>
+                        Santorini je posebno poznat po spektakularnim
+                        zalascima sunca, naročito u mestu Oia.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="znamenitosti" class="blue-section">
+
+            <h2>Najpoznatija mesta</h2>
+
+            <p class="intro">
+                Santorini ima mnogo zanimljivih mesta koja vredi posetiti.
+                Ovo su neka od najpoznatijih.
+            </p>
+
+
+            <div class="cards">
+
+                <div class="place-card">
+
+                    <img src="slike/oia.jpg" alt="Oia na Santoriniju">
+
+                    <div class="place-content">
+
+                        <h3>Oia</h3>
+
+                        <p>
+                            Oia je jedno od najpoznatijih mesta na ostrvu.
+                            Poznata je po belim kućama, plavim kupolama
+                            i spektakularnom zalasku sunca.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="place-card">
+
+                    <img src="slike/fira.jpg" alt="Fira na Santoriniju">
+
+                    <div class="place-content">
+
+                        <h3>Fira</h3>
+
+                        <p>
+                            Fira je glavni grad Santorinija. Sa litica
+                            pruža se predivan pogled na more i okolna ostrva.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="place-card">
+
+                    <img src="slike/red-beach.jpg" alt="Crvena plaža">
+
+                    <div class="place-content">
+
+                        <h3>Crvena plaža</h3>
+
+                        <p>
+                            Crvena plaža je poznata po svojim crvenkastim
+                            stenama i vulkanskom pejzažu koji je čini posebnom.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="galerija">
+
+            <h2>Galerija</h2>
+
+            <p class="intro">
+                Pogledajte nekoliko fotografija koje prikazuju
+                prirodne lepote i prepoznatljivu atmosferu Santorinija.
+            </p>
+
+
+            <div class="gallery">
+
+                <div class="gallery-item">
+
+                    <img src="slike/galerija1.jpg" alt="Bela sela Santorinija">
+
+                    <div class="gallery-text">
+                        <h3>Bela sela</h3>
+
+                        <p>
+                            Prepoznatljive bele kuće koje se spuštaju
+                            niz obronke ostrva.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-item">
+
+                    <img src="slike/galerija2.jpg" alt="Zalazak sunca na Santoriniju">
+
+                    <div class="gallery-text">
+                        <h3>Zalazak sunca</h3>
+
+                        <p>
+                            Jedan od najlepših prizora koji Santorini
+                            čini posebnom destinacijom.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-item">
+
+                    <img src="slike/galerija3.jpg" alt="Plave kupole Santorinija">
+
+                    <div class="gallery-text">
+                        <h3>Plave kupole</h3>
+
+                        <p>
+                            Plave kupole i bela arhitektura jedan su
+                            od najpoznatijih simbola ostrva.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="gallery-item">
+
+                    <img src="slike/galerija4.jpg" alt="Egejsko more">
+
+                    <div class="gallery-text">
+                        <h3>Egejsko more</h3>
+
+                        <p>
+                            Pogled na beskrajno plavetnilo Egejskog mora
+                            pruža osećaj potpunog mira.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="why-section">
+
+            <h2>Zašto bih posetio/la Santorini?</h2>
+
+            <p class="why-text">
+                Santorini je moja omiljena destinacija jer predstavlja
+                savršenu kombinaciju mora, prirode, arhitekture i kulture.
+                Posebno bih voleo/la da posetim Oiu, istražim mala
+                ostrvska mesta i uživam u zalasku sunca.
+            </p>
+
+        </section>
+
+        <section id="kontakt" class="contact-section">
+
+            <h2>Kontakt</h2>
+
+            <p>
+                Ako želite da podelite svoje utiske ili saznate više
+                o Santoriniju, možete poslati poruku.
+            </p>
+
+
+            <form>
+
+                <input type="text" placeholder="Ime i prezime" required>
+
+                <input type="email" placeholder="Email adresa" required>
+
+                <textarea rows="5" placeholder="Vaša poruka" required></textarea>
+
+                <button type="submit">
+                    Pošalji poruku
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>
+            © 2026 Moja omiljena destinacija - Santorini
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
